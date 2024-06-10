@@ -1,0 +1,37 @@
+name: new_onboarding
+description: "A new Flutter project."
+
+publish_to: 'none'
+version: 1.0.0+1
+
+environment:
+  sdk: '>=3.4.1 <4.0.0'
+
+#---------- PACKAGES ---------#
+dependencies:
+  flutter:
+    sdk: flutter
+
+
+  # Utility Packges
+  cupertino_icons: ^1.0.6
+  smooth_page_indicator: ^1.1.0
+
+  # State Managment
+  get: ^4.6.6
+
+
+#---------- ./ PACKAGES END ---------#
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+  flutter_svg: ^1.0.3
+
+flutter:
+  uses-material-design: true
+
+  #---------- LOCAL ASSETS ---------#
+  assets:
+  - assets/logo/
+  - assets/images/on_onboarding_images/

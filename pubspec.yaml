@@ -16,6 +16,8 @@ dependencies:
   # Utility Packges
   cupertino_icons: ^1.0.6
   smooth_page_indicator: ^1.1.0
+  flutter_svg: ^1.0.3
+  video_player: ^2.8.7
 
   # State Managment
   get: ^4.6.6
@@ -26,7 +28,6 @@ dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^3.0.0
-  flutter_svg: ^1.0.3
 
 flutter:
   uses-material-design: true

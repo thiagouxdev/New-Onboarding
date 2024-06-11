@@ -4,7 +4,7 @@ class TMedias {
 
   // -- OnBoarding Images
   static const String onBoardingMedia1 =
-      "assets/images/on_onboarding_medias/video_01.png";
+      "assets/images/on_onboarding_medias/new_onboarding_alta.mp4";
   static const String onBoardingMedia2 =
       "assets/images/on_onboarding_medias/img_01.png";
   static const String onBoardingMedia3 =

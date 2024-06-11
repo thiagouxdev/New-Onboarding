@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:new_onboarding/features/authentication/controllers/video_controller.dart';
+import 'package:video_player/video_player.dart';
 
 class OnBoardingPage extends StatelessWidget {
   const OnBoardingPage({
@@ -12,16 +15,35 @@ class OnBoardingPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final videoController = Get.put(VideoController());
+
+    if (media.endsWith(".mp4")) {
+      videoController.initializeVideo(media);
+    }
+
     return Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
         Stack(
           children: [
-            Image(
-              image: AssetImage(media),
-              fit: BoxFit.cover,
-              width: double.infinity,
-            ),
+            media.endsWith('.mp4')
+                ? Obx(() {
+                    if (videoController.isVideoInitialized.value) {
+                      return AspectRatio(
+                        aspectRatio: videoController
+                            .videoPlayerController.value.aspectRatio,
+                        child:
+                            VideoPlayer(videoController.videoPlayerController),
+                      );
+                    } else {
+                      return const Center(child: CircularProgressIndicator());
+                    }
+                  })
+                : Image(
+                    image: AssetImage(media),
+                    fit: BoxFit.cover,
+                    width: double.infinity,
+                  ),
             Positioned(
               bottom: 0,
               left: 0,

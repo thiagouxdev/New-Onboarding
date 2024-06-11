@@ -13,6 +13,8 @@ class OnBoardingPage extends StatelessWidget {
 
   final media, title, subTitle;
 
+  static const double _aspectRatio = 103 / 135;
+
   @override
   Widget build(BuildContext context) {
     final videoController = Get.put(VideoController());
@@ -29,14 +31,23 @@ class OnBoardingPage extends StatelessWidget {
             media.endsWith('.mp4')
                 ? Obx(() {
                     if (videoController.isVideoInitialized.value) {
-                      return AspectRatio(
-                        aspectRatio: videoController
-                            .videoPlayerController.value.aspectRatio,
-                        child:
-                            VideoPlayer(videoController.videoPlayerController),
+                      return SizedBox(
+                        width: double.infinity,
+                        child: AspectRatio(
+                          aspectRatio: _aspectRatio,
+                          child: VideoPlayer(
+                            videoController.videoPlayerController,
+                          ),
+                        ),
                       );
                     } else {
-                      return const Center(child: CircularProgressIndicator());
+                      return const SizedBox(
+                        width: double.infinity,
+                        child: AspectRatio(
+                          aspectRatio: _aspectRatio,
+                          child: Center(child: CircularProgressIndicator()),
+                        ),
+                      );
                     }
                   })
                 : Image(
